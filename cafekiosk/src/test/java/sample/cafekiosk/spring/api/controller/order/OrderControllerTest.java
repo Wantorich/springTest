@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
+import sample.cafekiosk.spring.api.controller.order.request.OrderCreateServiceRequest;
 import sample.cafekiosk.spring.api.service.order.OrderService;
 
 @WebMvcTest(controllers = OrderController.class)
@@ -33,7 +33,7 @@ class OrderControllerTest {
   @Test
   void createOrder() throws Exception {
     // given
-    OrderCreateRequest request = OrderCreateRequest.builder()
+    OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
         .productNumbers(List.of("001"))
         .build();
     // when
@@ -54,7 +54,7 @@ class OrderControllerTest {
   @Test
   void createOrderWithEmptyProductNumbers() throws Exception {
     // given
-    OrderCreateRequest request = OrderCreateRequest.builder()
+    OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
         .productNumbers(List.of())
         .build();
     // when

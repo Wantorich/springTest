@@ -5,22 +5,21 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import sample.cafekiosk.spring.api.service.order.request.OrderCreateServiceRequest;
 
 @Getter
 @NoArgsConstructor
-public class OrderCreateRequest {
+public class OrderCreateServiceRequest {
 
   @NotEmpty(message = "상품 번호 리스트는 필수입니다.")
   private List<String> productNumbers;
 
   @Builder
-  public OrderCreateRequest(List<String> productNumbers) {
+  public OrderCreateServiceRequest(List<String> productNumbers) {
     this.productNumbers = productNumbers;
   }
 
-  public OrderCreateServiceRequest toServiceRequest() {
-    return OrderCreateServiceRequest.builder()
+  public sample.cafekiosk.spring.api.service.order.request.OrderCreateServiceRequest toServiceRequest() {
+    return sample.cafekiosk.spring.api.service.order.request.OrderCreateServiceRequest.builder()
         .productNumbers(productNumbers)
         .build();
   }
